@@ -1,1 +1,4 @@
-body{display: none;}
+body{
+    display: none;
+    background-color: black;
+}
