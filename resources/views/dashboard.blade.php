@@ -19,6 +19,7 @@
         #header{
             position:relative;
             height: 175px;
+            margin-bottom: 40px;
         }
         #header-content{
             position: absolute;
@@ -29,6 +30,7 @@
             position: fixed; 
             bottom:0px; 
             width:100%;
+            background-color:#eeeeee;
         }
         .navbar-brand{
             width:50%; 
@@ -58,6 +60,24 @@
         a:hover{
             text-decoration: none;
         }
+        #training-box{
+            background-color: #eeeeee;
+            padding: 10px;
+            margin: 5px 0px 20px 0px;
+        }
+        #t_name{
+            position:relative;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #t_date{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #t_team{
+            position:relative;
+            color: gray;
+        }
     </style>
 </head>
 <body>
@@ -68,11 +88,31 @@
                 <h5>Mijn komende trainingen</h5>
             </div>
         </div>
+        @if(count($trainings) > 0)
         <div id="planning">
-
+            @foreach ($trainings as $training)
+                <span id="t_date"> 
+                    @if($training->training_date == date('Y-m-d'))
+                        Vandaag
+                    @elseif($training->training_date == date('Y-m-d', strtotime('tomorrow')))
+                        Morgen
+                    @else
+                        {{ date('l j F', strtotime($training->training_date)) }}
+                    @endif
+                </span>
+                <div id="training-box">
+                    <span id="t_name"> {{ $training->training_name }}</span>
+                    <br>
+                    <span id="t_team"> {{ $training->team_id }}</span>
+                    <!-- <span id="t_note"> {{ $training->training_note}}</span> -->
+                </div>
+            @endforeach
         </div>
+        @else
+            Er zijn geen trainingen.
+        @endif
     </div>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light">
         <a class="navbar-brand" href="#">
             <img src="https://www.flaticon.com/svg/static/icons/svg/177/177413.svg" class="icon" class="d-inline-block align-top" alt="">
             </br>
