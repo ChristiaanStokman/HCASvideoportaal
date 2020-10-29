@@ -64,6 +64,7 @@
             background-color: #eeeeee;
             padding: 10px;
             margin: 5px 0px 20px 0px;
+            min-height: 100px;
         }
         #t_name{
             position:relative;
@@ -91,21 +92,29 @@
         @if(count($trainings) > 0)
         <div id="planning">
             @foreach ($trainings as $training)
-                <span id="t_date"> 
-                    @if($training->training_date == date('Y-m-d'))
-                        Vandaag
-                    @elseif($training->training_date == date('Y-m-d', strtotime('tomorrow')))
-                        Morgen
-                    @else
-                        {{ date('l j F', strtotime($training->training_date)) }}
-                    @endif
-                </span>
-                <div id="training-box">
-                    <span id="t_name"> {{ $training->training_name }}</span>
-                    <br>
-                    <span id="t_team"> {{ $training->team_id }}</span>
-                    <!-- <span id="t_note"> {{ $training->training_note}}</span> -->
-                </div>
+                @if($training->training_date > date('Y-m-d'))
+                    <span id="t_date"> 
+                        <!-- $now = new DateTime(); -->
+                        @if($training->training_date == date('Y-m-d'))
+                            Vandaag
+                        @elseif($training->training_date == date('Y-m-d', strtotime('tomorrow')))
+                            Morgen
+                        @else
+                            {{ date('l j F', strtotime($training->training_date)) }}
+                        @endif
+                    </span>
+                    <div id="training-box">
+                        <div class="left-column">
+                            <span id="t_name"> {{ $training->training_name }}</span>
+                            <br>
+                            <span id="t_team"> {{ $training->team->team_name }}</span>
+                        </div>
+                        <div class="right-column">
+                            <span id="t_duration"> {{ $training->training_duration }}</span>
+                        </div>
+                    </div>
+                @else
+                @endif
             @endforeach
         </div>
         @else

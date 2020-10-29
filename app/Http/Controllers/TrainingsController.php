@@ -9,7 +9,7 @@ class TrainingsController extends Controller
 {
     public function index()
     {
-        $trainings = Training::all();
+        $trainings = Training::orderBy('training_date', 'asc')->get();
 
         return view('dashboard', ['trainings' => $trainings]);
     }
