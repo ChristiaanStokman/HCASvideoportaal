@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Training extends Model
+class Exercise extends Model
 {
     public $timestamps = false;
 
-    protected $table = 'trainings';
+    protected $table = 'exercises';
 
-    public function plannedtraining()
+    public function trainings()
     {
-        return $this->belongsTo(Plannedtraining::class);
+        return $this->belongsTo(Training::class);
     }
 }
-
-

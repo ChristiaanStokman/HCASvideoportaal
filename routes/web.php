@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
-
-Route::get('/dashboard', [\App\Http\Controllers\TrainingsController::class, 'index']);
+Route::get('/', [\App\Http\Controllers\TrainingsController::class, 'index']);
+Route::get('/addtraining', [\App\Http\Controllers\TrainingsController::class, 'createtraining']);
+Route::post('/addtraining', [\App\Http\Controllers\TrainingsController::class, 'addtraining']);
+Route::get('/addexercise', [\App\Http\Controllers\ExerciseController::class, 'addexercises']);
