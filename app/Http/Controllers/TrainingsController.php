@@ -22,15 +22,11 @@ class TrainingsController extends Controller
     {
         $exercises = Exercise::all();
         $teams = Team::all();
-        //return response($exercises);
         return view('addtraining', ['exercises' => $exercises, 'teams' => $teams]);
     }
 
     public function addtraining(Request $request)
     {
-        //$inputValue = $request->all();
-        //return $request->all();
-
         $training = new Training;
         $training->training_name = request('training-name');
         $training->training_duration = request('duration-time');
@@ -54,10 +50,5 @@ class TrainingsController extends Controller
         }
 
         return redirect('/addtraining');
-    }
-
-    public function addexercises()
-    {   
-        return view('addexercise');
     }
 }
