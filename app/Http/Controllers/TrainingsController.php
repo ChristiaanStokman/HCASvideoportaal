@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Training;
+use App\Models\PlannedTraining;
 use Illuminate\Http\Request;
 
 class TrainingsController extends Controller
 {
     public function index()
     {
-        $trainings = Training::orderBy('training_date', 'asc')->get();
-
-        return view('dashboard', ['trainings' => $trainings]);
+        $plannedtrainings = PlannedTraining::orderBy('training_date', 'asc')->get();
+        
+        return view('dashboard', ['plannedtrainings' => $plannedtrainings]);
     }
 }

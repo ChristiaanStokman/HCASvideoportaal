@@ -9,8 +9,8 @@ class Team extends Model
 {
     protected $table = 'teams';
 
-    public function trainings()
+    public function plannedTrainings()
     {
-        return $this->hasMany(Training::class)->orderBy('training_date');
+        return $this->hasMany(PlannedTraining::class)->orderBy('training_date');
     }
 }

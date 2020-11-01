@@ -9,8 +9,8 @@ class Training extends Model
 {
     protected $table = 'trainings';
 
-    public function team()
+    public function plannedTrainings()
     {
-        return $this->belongsTo(Team::class);
+        return $this->hasMany(PlannedTraining::class);
     }
 }
