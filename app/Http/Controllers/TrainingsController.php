@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Training;
 use App\Models\Exercise;
-use App\Models\Plannedtraining;
+use App\Models\PlannedTraining;
 use App\Models\Team;
-use App\Models\exercise_training;
+use App\Models\Exercise_Training;
 use Illuminate\Http\Request;
 
 class TrainingsController extends Controller
 {
     public function index()
     {
-        $trainings = Training::all();
+        $plannedtrainings = PlannedTraining::orderBy('training_date', 'asc')->get();
         
-        return view('dashboard', ['trainings' => $trainings]);
+        return view('dashboard', ['plannedtrainings' => $plannedtrainings]);
     }
 
     public function createtraining()
@@ -34,7 +34,7 @@ class TrainingsController extends Controller
 
         $newtraining = Training::orderby('id', 'desc')->first();
 
-        $plannedtraining = new Plannedtraining;
+        $plannedtraining = new PlannedTraining;
         $plannedtraining->training_id = $newtraining->id;
         $plannedtraining->team_id = request('team');
         $plannedtraining->training_note = request('new-note');
@@ -43,7 +43,7 @@ class TrainingsController extends Controller
 
         for($i = 0; $i < count($request->input('show_option')); $i++)
         {
-            $exercisetraining = new exercise_training;
+            $exercisetraining = new Exercise_Training;
             $exercisetraining->training_id = $newtraining->id;
             $exercisetraining->exercise_id = $request->input('show_option')[$i];
             $exercisetraining->save();

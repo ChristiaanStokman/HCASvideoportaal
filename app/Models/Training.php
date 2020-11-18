@@ -13,7 +13,7 @@ class Training extends Model
 
     public function plannedtraining()
     {
-        return $this->belongsTo(Plannedtraining::class);
+        return $this->hasMany(PlannedTraining::class);
     }
 }
 

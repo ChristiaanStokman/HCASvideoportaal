@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class exercise_training extends Model
+class Exercise_Training extends Model
 {
     public $timestamps = false;
     

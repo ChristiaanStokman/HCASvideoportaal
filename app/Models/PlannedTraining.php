@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlannedTraining extends Model
 {
-    public $timestamps = false;
-
     protected $table = 'plannedtrainings';
 
     public function team()

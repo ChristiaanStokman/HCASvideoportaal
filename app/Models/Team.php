@@ -13,6 +13,6 @@ class Team extends Model
 
     public function plannedtrainings()
     {
-        return $this->belongsTo(Plannedtraining::class);
+        return $this->belongsTo(PlannedTraining::class);
     }
 }
