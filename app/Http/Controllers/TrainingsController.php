@@ -27,28 +27,43 @@ class TrainingsController extends Controller
 
     public function addtraining(Request $request)
     {
-        $training = new Training;
-        $training->training_name = request('training-name');
-        $training->training_duration = request('duration-time');
-        $training->save();
-
-        $newtraining = Training::orderby('id', 'desc')->first();
-
-        $plannedtraining = new PlannedTraining;
-        $plannedtraining->training_id = $newtraining->id;
-        $plannedtraining->team_id = request('team');
-        $plannedtraining->training_note = request('new-note');
-        $plannedtraining->training_date = request('selected-date');
-        $plannedtraining->save();
-
-        for($i = 0; $i < count($request->input('show_option')); $i++)
+        try
         {
-            $exercisetraining = new Exercise_Training;
-            $exercisetraining->training_id = $newtraining->id;
-            $exercisetraining->exercise_id = $request->input('show_option')[$i];
-            $exercisetraining->save();
-        }
+            $training = new Training;
+            $training->training_name = request('training-name');
+            $training->training_duration = request('duration-time');
+            $training->save();
 
-        return redirect('/addtraining');
+            $newtraining = Training::orderby('id', 'desc')->first();
+
+            $plannedtraining = new PlannedTraining;
+            $plannedtraining->training_id = $newtraining->id;
+            $plannedtraining->team_id = request('team');
+            $plannedtraining->training_note = request('new-note');
+            $plannedtraining->training_date = request('selected-date');
+            $plannedtraining->save();
+
+            for($i = 0; $i < count($request->input('show_option')); $i++)
+            {
+                $exercisetraining = new Exercise_Training;
+                $exercisetraining->training_id = $newtraining->id;
+                $exercisetraining->exercise_id = $request->input('show_option')[$i];
+                $exercisetraining->save();
+            }
+            $result = true;
+        }
+        catch(Throwable $e)
+        {
+            report($e);
+            $result = false;
+        }
+        $exercises = Exercise::all();
+        $teams = Team::all();
+        return View('addtraining', ['exercises' => $exercises, 'teams' => $teams, 'result' => $result])->with('response');
+    }
+
+    public function show($id)
+    {
+        return view('showtraining', ['plannedtraining' => PlannedTraining::find($id)]);
     }
 }

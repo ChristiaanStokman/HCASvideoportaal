@@ -1,0 +1,118 @@
+*{
+    font-family: din-2014, sans-serif;
+}
+h1{
+    margin-bottom: -3px;
+    font-weight: bold;
+}
+h5{
+    color: gray;
+}
+#header{
+    position:relative;
+    height: 175px;
+    margin-bottom: 40px;
+}
+#header-content{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.navbar{
+    position: fixed; 
+    bottom:0px; 
+    width:100%;
+    background-color:#eeeeee;
+    padding: 0px;
+}
+.navbar-brand{
+    width:50%; 
+    padding:23px 0px; 
+    margin:0px;
+    text-align: center;
+    min-width:120px;
+    font-weight:bold;
+    font-size: 15px;
+    transition: 0.3s;
+}
+.navbar-brand:hover{
+    background-color:#dfdfdf;
+    transition: 0.3s;
+}
+.icon{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+#icon-button{
+    position: fixed;
+    left:50%;
+    margin-left:-40px;
+    bottom: 63px;
+    background-color: #f47720;
+    padding:2.5px 25.5px;
+    font-size:50px;
+    border-radius:50px;
+    color: white;
+    box-shadow: 0px 2px 8px gray;
+}
+a:hover{
+    text-decoration: none;
+}
+#planning{
+    padding-bottom: 140px;
+}
+#training-box{
+    background-color: #eeeeee;
+    padding: 15px;
+    margin: 5px 0px 20px 0px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#training-box:hover{
+    background-color: #dedede;
+    transition: 0.3s;
+}
+.right-column{
+    width: 25%;
+    margin:auto;
+    text-align: center;
+}
+.left-column{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+#t_name{
+    position:relative;
+    font-weight: bold;
+    font-size: 22px;
+}
+#t_date{
+    font-weight: bold;
+    font-size: 22px;
+}
+#t_team{
+    position:relative;
+    color: gray;
+    line-height:0.8;
+}
+#t_duration{
+    font-weight: bold;
+    font-size: 26px;
+}
+#t_duration_desc{
+    font-weight: normal;
+    font-size: 16px;
+    vertical-align: middle;
+}
+.logo{
+    position: absolute;
+    height:85px;
+    width: auto;
+    top: 45px;
+    right: 45px;
+}

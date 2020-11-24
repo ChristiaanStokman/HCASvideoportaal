@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TrainingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\TrainingsController::class, 'index']);
-Route::get('/addtraining', [\App\Http\Controllers\TrainingsController::class, 'createtraining']);
-Route::post('/addtraining', [\App\Http\Controllers\TrainingsController::class, 'addtraining']);
+Route::get('/', [TrainingsController::class, 'index']);
+Route::get('/addtraining', [TrainingsController::class, 'createtraining']);
+Route::post('/addtraining', [TrainingsController::class, 'addtraining']);
+Route::get('/showtraining/{training_id}', [TrainingsController::class, 'show']);
+
 Route::get('/addexercise', [\App\Http\Controllers\ExerciseController::class, 'addexercises']);

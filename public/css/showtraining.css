@@ -1,0 +1,129 @@
+*{
+    font-family: din-2014, sans-serif;
+}
+body{
+    margin: 0;
+}
+#exercises{
+    overflow: scroll;
+    height: 225px;
+    width: 100%;
+    overflow-x: hidden;
+    /* border: 1px solid lightgray; */
+}
+.page-header{
+    font-size: 30px;
+    margin-bottom: -3px;
+    font-weight: bold;
+}
+#banner{
+    position: absolute;
+    width: 100%;
+    height: 175px;
+    background-image: url("/img/hockey_banner.jpg");
+    background-repeat: repeat;
+    background-position: center;
+}
+#header{
+    position: relative;
+    height: 175px;
+    margin-bottom: 40px;
+}
+#header-content{
+    color: white;
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+}
+#form{
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+input, select, #exercises{
+    min-width: 300px;
+}
+.input-label{
+    font-size: 18px;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-block{
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+#btnsave{
+    width: 100%;
+    background-color: #dd5326;
+    color: white;
+    border-radius: 50px;
+    height: 60px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+.oefening{
+    padding: 15px;
+    background-color: #efefef;
+    margin: 4px;
+    border-radius: 5px;
+    vertical-align: center;
+    display: flex;
+    align-items: center;
+}
+label{
+    margin-bottom: 0;
+}
+#btnback{
+    border: 0;
+    font-size: 30px;
+    background-color: transparent;
+    background-image: url("https://www.materialui.co/materialIcons/navigation/arrow_back_grey_192x192.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    color: #aaaaaa;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+}
+.logo{
+    position: absolute;
+    height:85px;
+    width: auto;
+    top: 45px;
+    right: 45px;
+}
+#t_duration{
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 55px;
+}
+#t_duration_desc{
+    font-weight: normal;
+    font-size: 16px;
+    vertical-align: middle;
+}
+#t_date_day{
+    font-weight: bold;
+    font-size: 22px;
+}
+#t_date_month{
+    position:relative;
+    color: gray;
+    line-height:0.8;
+}
+#t_team{
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 55px;
+}
+.col-sm{
+    text-align: center;
+}
